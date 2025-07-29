@@ -1,6 +1,7 @@
 {
   "name": "watermark",
   "displayName": "Watermark",
+  "publisher": "JKsomtimesCollin",
   "description": "Adds a customizable, diagonal watermark showing your current project’s name in the background of your editor. Perfect for distinguishing multiple open workspaces or adding a visual project marker, inspired by watermark patterns like Naver’s marketplace style.",
   "version": "0.0.1",
   "repository": {
@@ -8,7 +9,7 @@
     "url": "https://github.com/hanilkong/cursor-water-mark.git"
   },
   "engines": {
-    "vscode": "^1.102.0"
+    "vscode": "^1.99.0"
   },
   "categories": [
     "Other"
@@ -78,7 +79,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.102.0",
+    "@types/vscode": "^1.99.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
