@@ -6,12 +6,11 @@ A customizable VS Code extension that adds diagonal watermarks showing your curr
 
 - **Dynamic Watermark Generation**: Automatically creates watermarks based on project name length and screen size
 - **Performance Optimized**: Uses DocumentFragment, CSS variables, and debounced resize events
-- **Customizable Settings**: Full control over opacity, rotation, color, font size, and animations
+- **Customizable Settings**: Full control over opacity, rotation, color, and font size
 - **Real-time Configuration**: Settings update instantly without restart
-- **Performance Monitoring**: Optional FPS and watermark count display
 - **Keyboard Shortcuts**: Toggle watermarks with `Cmd+Shift+W` (Mac) / `Ctrl+Shift+W` (Windows/Linux)
-- **Hover Effects**: Hide watermarks when hovering over them
 - **Responsive Design**: Adapts to different screen sizes and project name lengths
+- **Clean & Simple**: Focused on core functionality without unnecessary complexity
 
 ## 🚀 Installation
 
@@ -34,13 +33,10 @@ All settings can be configured through VS Code's settings panel (`Cmd+,` / `Ctrl
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
-| `watermark.opacity` | number | 0.6 | Opacity of the watermark (0-1) |
+| `watermark.opacity` | number | 0.1 | Opacity of the watermark (0-1) |
 | `watermark.rotationAngle` | number | -45 | Rotation angle in degrees (-90 to 90) |
 | `watermark.textColor` | string | "rgba(100, 100, 100, 0.08)" | Color of the watermark text |
-| `watermark.fontSize` | number | 2 | Font size multiplier (0.5-5) |
-| `watermark.enableAnimation` | boolean | true | Enable floating animation |
-| `watermark.enableHoverHide` | boolean | true | Hide watermark on hover |
-| `watermark.enablePerformanceInfo` | boolean | false | Show performance metrics |
+| `watermark.fontSize` | number | 4 | Font size multiplier (0.5-10) |
 
 ### Example Settings
 
@@ -49,10 +45,7 @@ All settings can be configured through VS Code's settings panel (`Cmd+,` / `Ctrl
   "watermark.opacity": 0.8,
   "watermark.rotationAngle": -30,
   "watermark.textColor": "rgba(0, 0, 255, 0.1)",
-  "watermark.fontSize": 1.5,
-  "watermark.enableAnimation": true,
-  "watermark.enableHoverHide": true,
-  "watermark.enablePerformanceInfo": true
+  "watermark.fontSize": 3
 }
 ```
 
@@ -65,14 +58,6 @@ All settings can be configured through VS Code's settings panel (`Cmd+,` / `Ctrl
 
 ### Advanced Features
 
-#### Performance Monitoring
-Enable performance monitoring to see real-time FPS and watermark count:
-```json
-{
-  "watermark.enablePerformanceInfo": true
-}
-```
-
 #### Custom Colors
 Set custom watermark colors:
 ```json
@@ -81,11 +66,20 @@ Set custom watermark colors:
 }
 ```
 
-#### Animation Control
-Disable animations for better performance:
+#### Large Font Sizes
+Use larger font sizes for more prominent watermarks:
 ```json
 {
-  "watermark.enableAnimation": false
+  "watermark.fontSize": 8,
+  "watermark.opacity": 0.6
+}
+```
+
+#### Different Angles
+Adjust the rotation angle for different visual effects:
+```json
+{
+  "watermark.rotationAngle": 15  // Positive angle
 }
 ```
 
@@ -114,7 +108,6 @@ watermark/
 - **DocumentFragment**: Batch DOM operations for better performance
 - **CSS Variables**: Efficient style updates without element iteration
 - **Debounced Resize**: Prevents excessive recalculations on window resize
-- **GPU Acceleration**: Uses `will-change` for smooth animations
 
 #### Settings Integration
 - **Real-time Updates**: Settings changes apply immediately
@@ -134,10 +127,8 @@ Tests cover:
 - ✅ Settings validation
 - ✅ Project name processing
 - ✅ Performance optimizations
-- ✅ Animation configurations
 - ✅ Event handlers
 - ✅ Debounce functions
-- ✅ FPS measurements
 - ✅ Position calculations
 - ✅ Settings updates
 
@@ -147,8 +138,7 @@ Tests cover:
 ```json
 {
   "watermark.opacity": 0.3,
-  "watermark.fontSize": 1,
-  "watermark.enableAnimation": false
+  "watermark.fontSize": 1
 }
 ```
 
@@ -156,7 +146,7 @@ Tests cover:
 ```json
 {
   "watermark.opacity": 0.9,
-  "watermark.fontSize": 3,
+  "watermark.fontSize": 6,
   "watermark.textColor": "rgba(0, 0, 0, 0.15)"
 }
 ```
@@ -169,6 +159,15 @@ Tests cover:
 }
 ```
 
+### Large Prominent Watermarks
+```json
+{
+  "watermark.fontSize": 8,
+  "watermark.opacity": 0.7,
+  "watermark.textColor": "rgba(0, 100, 200, 0.2)"
+}
+```
+
 ## 🐛 Troubleshooting
 
 ### Watermarks Not Showing
@@ -177,9 +176,8 @@ Tests cover:
 3. Try toggling with `Cmd+Shift+W`
 
 ### Performance Issues
-1. Disable animations: `"watermark.enableAnimation": false`
-2. Reduce font size: `"watermark.fontSize": 1`
-3. Lower opacity: `"watermark.opacity": 0.3`
+1. Reduce font size: `"watermark.fontSize": 1`
+2. Lower opacity: `"watermark.opacity": 0.3`
 
 ### Settings Not Applying
 1. Check VS Code settings panel
@@ -195,6 +193,7 @@ Tests cover:
 - Comprehensive test suite
 - VS Code settings integration
 - Real-time configuration updates
+- Simplified and focused functionality
 
 ## 🤝 Contributing
 

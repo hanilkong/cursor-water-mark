@@ -16,10 +16,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "watermark.helloWorld",
-        "title": "Hello World"
-      },
-      {
         "command": "watermark.toggle",
         "title": "Toggle Watermark"
       }
