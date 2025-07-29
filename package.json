@@ -1,0 +1,93 @@
+{
+  "name": "watermark",
+  "displayName": "Watermark",
+  "description": "Adds a customizable, diagonal watermark showing your current project’s name in the background of your editor. Perfect for distinguishing multiple open workspaces or adding a visual project marker, inspired by watermark patterns like Naver’s marketplace style.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "watermark.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "watermark.toggle",
+        "title": "Toggle Watermark"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "watermark.toggle",
+        "key": "ctrl+shift+w",
+        "mac": "cmd+shift+w"
+      }
+    ],
+    "configuration": {
+      "title": "Watermark",
+      "properties": {
+        "watermark.opacity": {
+          "type": "number",
+          "default": 0.1,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Opacity of the watermark (0-1)"
+        },
+        "watermark.rotationAngle": {
+          "type": "number",
+          "default": -45,
+          "minimum": -90,
+          "maximum": 90,
+          "description": "Rotation angle of the watermark in degrees"
+        },
+        "watermark.textColor": {
+          "type": "string",
+          "default": "rgba(100, 100, 100, 0.08)",
+          "description": "Color of the watermark text"
+        },
+        "watermark.fontSize": {
+          "type": "number",
+          "default": 4,
+          "minimum": 0.5,
+          "maximum": 10,
+          "description": "Font size multiplier for the watermark"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.102.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "esbuild": "^0.25.3",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
